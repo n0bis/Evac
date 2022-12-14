@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: evac_frontend:latest
+        name: network-frontend
+        ports:
+        - containerPort: 80
+        command:
+        - sh
+        - -c
+        args:
+        - sed -i "s/__bur__/$BACKEND_SERVICE_HOST/g" /usr/share/nginx/html/env.js;
+          sed -i "s/__proxy__/$BACKEND_SERVICE_HOST/g" /etc/nginx/nginx.conf;
+          sed -i "s/__proxy__/$BACKEND_SERVICE_HOST/g" /etc/nginx/conf.d/default.conf;
+          nginx -g 'daemon off;'
+        env:
+        - name: NODE_ENV
+          value: "development"
+        resources: {}
+status: {}

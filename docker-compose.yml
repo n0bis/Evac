@@ -1,0 +1,21 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  frontend:
+    build: ./Frontend
+    ports:
+      - "80:80"
+    environment:
+      - REACT_APP_BACKEND_DNS=http://localhost:3000
+    depends_on:
+      - backend
+  backend:
+    build: ./Backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - MONGO_DB_CONNECTION_STRING=secret
+      - MONGO_DB_NAME=cluster0
+      - REDIS_URI=secret
+      - CORS_ORIGIN=*

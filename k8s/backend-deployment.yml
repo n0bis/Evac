@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: evac_backend:latest
+        name: network-backend
+        env:
+        - name: PORT
+          value: "3000"
+        - name: NODE_ENV
+          value: "development" 
+        - name: MONGO_DB_CONNECTION_STRING
+          value: "secret"
+        - name: MONGO_DB_NAME
+          value: "cluster0"
+        - name: REDIS_URI
+          value: "secret"
+        - name: CORS_ORIGIN
+          value: "*"
+        ports:
+          - name: http
+            containerPort: 3000
+        resources: {}
+status: {}

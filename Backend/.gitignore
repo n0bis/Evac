@@ -1,3 +1,25 @@
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,node,git
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,windows,node,git
+
+dist/
+downloaded/
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+
+### Node ###
 # Logs
 logs
 *.log
@@ -102,7 +124,9 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
-.cache
+
+# Docusaurus cache and generated files
+.docusaurus
 
 # Serverless directories
 .serverless/
@@ -126,35 +150,66 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
 
-# Icon must end with two \r
-Icon
+# Optional stylelint cache
 
+# SvelteKit build / generate output
+.svelte-kit
 
-# Thumbnails
-._*
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+# Local History for Visual Studio Code
+.history/
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Built Visual Studio Code Extensions
+*.vsix
 
-### macOS Patch ###
-# iCloud generated files
-*.icloud
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+.vscode/*.code-snippets
+
+# Ignore code-workspaces
+*.code-workspace
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,node,git
+
+*.webm
